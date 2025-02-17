@@ -19,11 +19,12 @@ let clickCount = 0; // 记录点击 No 的次数
 
 // No 按钮的文字变化
 const noTexts = [
-  "？你认真的吗…",
+  "真的吗…",
   "要不再想想？",
   "不许选这个！ ",
   "我会很伤心…",
   "不行:(",
+  "求你了\n我有你丑照"
 ];
 
 // No 按钮点击事件
@@ -44,7 +45,7 @@ noButton.addEventListener("click", function () {
   questionText.style.transform = `translateY(-${moveUp}px)`;
 
   // No 文案变化（前 5 次变化）
-  if (clickCount <= 5) {
+  if (clickCount <= 7) {
     noButton.innerText = noTexts[clickCount - 1];
   }
 
@@ -53,11 +54,14 @@ noButton.addEventListener("click", function () {
   if (clickCount === 2) mainImage.src = "images/think.png"; // 思考
   if (clickCount === 3) mainImage.src = "images/angry.png"; // 生气
   if (clickCount === 4) mainImage.src = "images/crying.png"; // 哭
-  if (clickCount >= 5) mainImage.src = "images/crying.png"; // 之后一直是哭
+  if (clickCount === 5) mainImage.src = "images/crying.png"; // 哭
+  if (clickCount === 6) mainImage.src = "images/3.png"; // 警告
+  if (clickCount > 6) mainImage.src = "images/2.png";//hzy照片
+  
 });
 
 // Yes 按钮点击后，进入表白成功页面
-const loveTest = `!!!喜欢你!! ( >᎑<)♡︎ᐝ  ${
+const loveTest = `!!!喜欢你!! 晚上记得买饭回来ᐝ  ${
   username ? `${safeUsername}  ♡︎ᐝ(>᎑< )` : ""
 }`;
 
@@ -66,7 +70,7 @@ yesButton.addEventListener("click", function () {
   document.body.innerHTML = `
         <div class="yes-screen">
             <h1 class="yes-text"></h1>
-            <img src="images/hug.png" alt="拥抱" class="yes-image">
+            <img src="images/h1.png" alt="拥抱" class="yes-image">
         </div>
     `;
 
